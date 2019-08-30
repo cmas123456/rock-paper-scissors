@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function computerPlay() {
+           
+            var janken = [
+                "Rock",
+                "Paper",
+                "Scissors"
+
+            ]
+
+            var randomChoice = janken[Math.floor(Math.random()*janken.length)]
+            return randomChoice;
+           } 
+
+        function playRound(playerSelection, computerSelection) {
+
+            var playerInput = prompt("Rock, Paper, or Scissors?");
+            playerInput.toLowerCase;
+            if (playerInput != rock || paper || scissors ) {
+                throw 'error'   
+            } 
+            
+            if (playerInput = rock) {
+                if (computerSelection = Rock) {
+                    
+                    draw ++;
+                    return "You both chose Rock! This is a draw!"
+
+                } else if (computerSelection = Paper) {
+                    
+                    lose++;
+                    return "Paper covers rock! You lose!"
+
+                } else if (computerSelection = Scissors ) {
+                    
+                    win++;
+                    return "Rock smashes Scissors! You win!"
+                }
+            }
+            
+            if (playerInput = paper) {
+                if (computerSelection = Rock) {
+                    
+                    win ++;
+                    return "Paper covers rock! You win!"
+
+                } else if (computerSelection = Paper) {
+                    
+                    draw++;
+                    return "You both chose Paper! This is a draw!"
+
+                } else if (computerSelection = Scissors ) {
+                    
+                    lose++;
+                    return "Scissors cut Paper! You lose!"
+                }
+            }
+            
+            if (playerInput = scissors) {
+                if (computerSelection = Rock) {
+                    
+                    win ++;
+                    return "Rock smashes Scissors! You lose!"
+
+                } else if (computerSelection = Paper) {
+                    draw++;
+                    return "Scissors cut Paper! You win!"
+
+                } else if (computerSelection = Scissors ) {
+                    
+                    lose++;
+                    return "You both chose Scissors! This is a draw!"
+                }
+            }
+        }
+        
+        
+        function game() {
+            var draw;
+            var win;
+            var lose;
+            var round;
+
+            for (i = 0; i < 4; i++) {
+                playRound();
+                console.log("Round: " + round + " out of 5")
+                console.log("Wins: " + win)
+                console.log("Losses: " + lose)
+                console.log("Draws: ")
+            }
+        
+        }
+            console.log(game());
+    </script>
+</html>
