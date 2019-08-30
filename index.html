@@ -1,97 +1,117 @@
 <!DOCTYPE html>
 <html>
     <script>
+
+        const computerSelection = computerPlay();
+        const playerSelection = 'rock';
+        var draw = 0;
+        var win = 0;
+        var lose = 0;
+        var round = 0;
+
+        
         function computerPlay() {
            
-            var janken = [
-                "Rock",
-                "Paper",
-                "Scissors"
+           var janken = ["Rock", "Paper","Scissors"];
+           let randomChoice = () => { return 
+           janken[Math.floor(Math.random()*janken.length)];
+           }
+        } 
+       
+       function playRound(playerSelection, computerSelection) {
 
-            ]
+        var playerInput = prompt("Rock, Paper, or Scissors?");
+        playerInput.toLowerCase;
 
-            var randomChoice = janken[Math.floor(Math.random()*janken.length)]
-            return randomChoice;
-           } 
 
-        function playRound(playerSelection, computerSelection) {
+           if (playerInput = "rock" ) {
+               if (computerSelection = "Rock") {
+                   
+                   draw++;
+                   round++;
+                   return "You both chose Rock! This is a draw!"
 
-            var playerInput = prompt("Rock, Paper, or Scissors?");
-            playerInput.toLowerCase;
-            if (playerInput != rock || paper || scissors ) {
-                throw 'error'   
-            } 
-            
-            if (playerInput = rock) {
-                if (computerSelection = Rock) {
-                    
-                    draw ++;
-                    return "You both chose Rock! This is a draw!"
+               } else if (computerSelection = "Paper") {
+                   
+                   lose++;
+                   round++;
+                   return "Paper covers rock! You lose!"
 
-                } else if (computerSelection = Paper) {
-                    
-                    lose++;
-                    return "Paper covers rock! You lose!"
+               } else if (computerSelection = "Scissors" ) {
+                   
+                   win++;
+                   round++;
+                   return "Rock smashes Scissors! You win!"
+               }
+           }
+           
+           if (playerInput = "paper") {
+               if (computerSelection = "Rock") {
+                   
+                   win ++;
+                   round++;
+                   return "Paper covers rock! You win!"
 
-                } else if (computerSelection = Scissors ) {
-                    
-                    win++;
-                    return "Rock smashes Scissors! You win!"
-                }
-            }
-            
-            if (playerInput = paper) {
-                if (computerSelection = Rock) {
-                    
-                    win ++;
-                    return "Paper covers rock! You win!"
+               } else if (computerSelection = "Paper") {
+                   
+                   draw++;
+                   round++;
+                   return "You both chose Paper! This is a draw!"
 
-                } else if (computerSelection = Paper) {
-                    
-                    draw++;
-                    return "You both chose Paper! This is a draw!"
+               } else if (computerSelection = "Scissors") {
+                   
+                   lose++;
+                   round++;
+                   return "Scissors cut Paper! You lose!"
 
-                } else if (computerSelection = Scissors ) {
-                    
-                    lose++;
-                    return "Scissors cut Paper! You lose!"
-                }
-            }
-            
-            if (playerInput = scissors) {
-                if (computerSelection = Rock) {
-                    
-                    win ++;
-                    return "Rock smashes Scissors! You lose!"
+               }
+           }
+           
+           if (playerInput = "scissors") {
+               if (computerSelection = "Rock") {
+                   
+                   lose++;
+                   round++;
+                   return "Rock smashes Scissors! You lose!"
 
-                } else if (computerSelection = Paper) {
-                    draw++;
-                    return "Scissors cut Paper! You win!"
+               } else if (computerSelection = "Paper") {
 
-                } else if (computerSelection = Scissors ) {
-                    
-                    lose++;
-                    return "You both chose Scissors! This is a draw!"
-                }
-            }
-        }
-        
-        
-        function game() {
-            var draw;
-            var win;
-            var lose;
-            var round;
+                   win++;
+                   round++;
+                   return "Scissors cut Paper! You win!"
 
-            for (i = 0; i < 4; i++) {
-                playRound();
-                console.log("Round: " + round + " out of 5")
-                console.log("Wins: " + win)
-                console.log("Losses: " + lose)
-                console.log("Draws: ")
-            }
-        
-        }
-            console.log(game());
+               } else if (computerSelection = "Scissors") {
+                   
+                   draw++;
+                   round++;
+                   return "You both chose Scissors! This is a draw!"
+
+               }
+           }
+           return 'Invalid';
+       }
+       
+       
+       function game() {
+           for (i = 0; i < 5; i++) {
+               playRound(playerSelection, computerSelection);
+               console.log("Round: " + round + " out of 5")
+               console.log("Wins: " + win)
+               console.log("Losses: " + lose)
+               console.log("Draws: " + draw)
+           }
+           if (draw = 3) {
+               console.log("You tied!")
+           }
+           if (win > loss) {
+               console.log("You win!")
+           }
+           if (lose > win) {
+               console.log("You lost!")
+           }
+       }
+
+
+           console.log(game());
     </script>
 </html>
