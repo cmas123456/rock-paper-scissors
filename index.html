@@ -8,13 +8,13 @@
         var counter = 0;
         
         function computerPlay() {
-           num = Math.floor(Math.random() * 2);
-           if (num = 0) {
+           num = Math.floor(Math.random() * 3);
+           if (num === 0) {
                  return 'rock'; 
-           } else if (num = 1) { 
-                 return 'scissors'; 
-           } else {
-                 return 'rock';
+           } else if (num === 1) { 
+                 return 'paper'; 
+           } else if (num === 2) {
+                 return 'scissors';
            }        
         }
                
@@ -22,27 +22,27 @@
        
        function playRound(playerSelection, computerSelection) {
            // Draw
-           if (playerSelection == computerSelection) {
+           if (playerSelection === computerSelection) {
                return ("You both chose " + computerSelection + ". It's a draw");
            // Rock
-           } else if (playerSelection == 'rock' && computerSelection == 'paper') {
+           } else if (playerSelection === 'rock' && computerSelection === 'paper') {
                computerScore++;
                return "Paper covers Rock! You lose!";
-           } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
+           } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
                playerScore++;
                return "Rock crushes Scissors! You win!";
             // Paper
-           } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+           } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
                computerScore++;
                return "Scissors cut Paper! You lose!"
-           } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+           } else if (playerSelection === 'paper' && computerSelection === 'rock') {
                playerScore++;
                return "Paper covers Rock! You win!";
             //Scissors
-           } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+           } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
                computerScore++;
                return "Rock crushes Scissors! You lose!";
-           } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+           } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
                playerScore++;
                return "Scissors cut Paper! You win!";
             //Invalid Input
